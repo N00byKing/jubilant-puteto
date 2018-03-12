@@ -4,8 +4,11 @@ jdk:
   - openjdk7
   - openjdk6
 
-script:
+install:
   - ant clean
+
+script:
   - ant compile
+
+after_success:
   - ant jar
-  
