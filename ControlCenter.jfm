@@ -1,0 +1,188 @@
+object ControlCenter: TFGUIForm
+  Left = 694
+  Top = 194
+  BorderIcons = [biSystemMenu]
+  Caption = 'ControlCenter'
+  ClientHeight = 429
+  ClientWidth = 457
+  Color = clWhite
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -10
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = True
+  Position = poDesigned
+  ShowHint = True
+  Visible = True
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnResize = FormResize
+  FrameType = 2
+  Resizable = False
+  Undecorated = False
+  Background = clWhite
+  componentMoved = 'ControlPanel_ComponentMoved'
+  PixelsPerInch = 96
+  TextHeight = 13
+  object lbDebugMenuControl: TALabel
+    Tag = -1
+    Left = 96
+    Top = 264
+    Width = 270
+    Height = 44
+    Hint = 'label1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -24
+    Font.Name = 'Dialog'
+    Font.Style = []
+    Foreground = clWindowText
+    Background = clBtnFace
+    Alignment = CENTER
+    Text = 'Debug Menu Control'
+  end
+  object lbEmulatorControl: TALabel
+    Tag = -1
+    Left = 96
+    Top = 40
+    Width = 283
+    Height = 65
+    Hint = 'label1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -24
+    Font.Name = 'Dialog'
+    Font.Style = []
+    Foreground = clWindowText
+    Background = clBtnFace
+    Alignment = CENTER
+    Text = 'Emulator Control'
+  end
+  object bLoadROM: TAButton
+    Tag = -4
+    Left = 232
+    Top = 176
+    Width = 201
+    Height = 25
+    Hint = 'button1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = []
+    Foreground = clBlack
+    Background = 15658734
+    Text = 'Load ROM'
+    actionPerformed = 'bLoadROM_ActionPerformed'
+  end
+  object tfROM: TATextField
+    Tag = -2
+    Left = 232
+    Top = 208
+    Width = 201
+    Height = 25
+    Cursor = crIBeam
+    Hint = 'textField1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = []
+    Foreground = 3355443
+    Background = clWhite
+    Text = ''
+    Editable = True
+  end
+  object bHideDebugMenu: TAButton
+    Tag = -4
+    Left = 232
+    Top = 328
+    Width = 201
+    Height = 89
+    Hint = 'button4'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = []
+    Foreground = clBlack
+    Background = 15658734
+    Visible = False
+    Text = 'Hide Debug Menu'
+    actionPerformed = 'bHideDebugMenu_ActionPerformed'
+  end
+  object bHideEmulation: TAButton
+    Tag = -4
+    Left = 232
+    Top = 112
+    Width = 201
+    Height = 57
+    Hint = 'button2'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = []
+    Foreground = clBlack
+    Background = 15658734
+    Visible = False
+    Text = 'Hide Emulation'
+    actionPerformed = 'bHideEmulation_ActionPerformed'
+  end
+  object bResetEmulator: TAButton
+    Tag = -4
+    Left = 24
+    Top = 176
+    Width = 201
+    Height = 57
+    Hint = 'button1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = []
+    Foreground = clBlack
+    Background = 15658734
+    Visible = False
+    Text = 'Reset Emulator'
+    actionPerformed = 'bResetEmulator_ActionPerformed'
+  end
+  object bShowDebugMenu: TAButton
+    Tag = -4
+    Left = 24
+    Top = 328
+    Width = 201
+    Height = 89
+    Hint = 'button3'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = []
+    Foreground = clBlack
+    Background = 15658734
+    Visible = False
+    Text = 'Show Debug Menu'
+    actionPerformed = 'bShowDebugMenu_ActionPerformed'
+  end
+  object bShowEmulation: TAButton
+    Tag = -4
+    Left = 24
+    Top = 112
+    Width = 201
+    Height = 57
+    Hint = 'button1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = []
+    Foreground = clBlack
+    Background = 15658734
+    Visible = False
+    Text = 'Show Emulation'
+    actionPerformed = 'bShowEmulation_ActionPerformed'
+  end
+end
