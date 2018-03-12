@@ -4,3 +4,8 @@ jdk:
   - openjdk7
   - openjdk6
 
+install:
+  - ant clean
+  - ant compile
+  - ant jar
+  
