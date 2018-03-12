@@ -153,11 +153,6 @@ public class ControlCenter extends Frame {
     dmenu.reset();
   } // end of bResetEmulator_ActionPerformed
 
-  public void bOpenChip8File_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-    
-  } // end of bOpenChip8File_ActionPerformed
-
   public void bLoadROM_ActionPerformed(ActionEvent evt) {
     File romfile = new File(tfROM.getText());
     if (romfile.exists()) {
