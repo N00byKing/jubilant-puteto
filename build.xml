@@ -1,0 +1,21 @@
+<project>
+
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="${basedir}" destdir="build/classes"/>
+    </target>
+
+    <target name="jar">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/jubilant-puteto.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="ControlCenter"/>
+            </manifest>
+        </jar>
+    </target>
+
+</project>
