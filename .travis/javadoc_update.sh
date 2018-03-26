@@ -8,7 +8,7 @@ if [ "$TRAVIS_REPO_SLUG" == "N00byKing/jubilant-puteto" ] && [ "$TRAVIS_JDK_VERS
 
   echo -e "Generating javadoc...\n"
 
-  javadoc -d jubilant-puteto-doc/ $(find . -name *.java)
+  javadoc -d jubilant-puteto-doc/ $(find . -name '*.java')
 
   echo -e "Publishing javadoc...\n"
 
