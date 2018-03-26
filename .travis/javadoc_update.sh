@@ -8,7 +8,7 @@ if [ "$TRAVIS_REPO_SLUG" == "N00byKing/jubilant-puteto" ] && [ "$TRAVIS_JDK_VERS
 
   echo -e "Generating javadoc...\n"
 
-  javadoc -sourcepath ${pwd} -d jubilant-puteto-doc/ -subpackages .
+  javadoc -d jubilant-puteto-doc/ $(find . -name *.java)
 
   echo -e "Publishing javadoc...\n"
 
