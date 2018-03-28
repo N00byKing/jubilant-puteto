@@ -6,27 +6,26 @@ if [ "$TRAVIS_REPO_SLUG" == "N00byKing/jubilant-puteto" ] && [ "$TRAVIS_JDK_VERS
   git config --global user.name "travis-ci"
   git clone https://${GH_TOKEN}@github.com/N00byKing/jubilant-puteto-doc
 
-  echo -e "Generating javadoc...\n"
+  echo -e "\n Generating javadoc...\n"
 
   javadoc -d jubilant-puteto-doc/ $(find . -name '*.java')
 
-  echo -e "Publishing javadoc...\n"
+  echo -e "\n Publishing javadoc...\n"
 
   cd jubilant-puteto-doc
-  git status
   git add *
   git commit -m "Latest javadoc for commit $TRAVIS_COMMIT auto-pushed to N00byKing/jubilant-puteto-doc"
   git push -f
 
-  echo -e "Javadoc Updated.\n"
+  echo -e "\n Javadoc Updated.\n"
   
   cd ..
   
-  echo -e "Updating Submodule Link...\n"
+  echo -e "\n Updating Submodule Link...\n"
 
-  git checkout master
-  git submodule update --remote --merge
-  git add doc
-  git commit -m 'Latest javadoc linked'
-  git push
+#  git checkout master
+#  git submodule update --remote --merge
+#  git add doc
+#  git commit -m 'Latest javadoc linked'
+#  git push
 fi
