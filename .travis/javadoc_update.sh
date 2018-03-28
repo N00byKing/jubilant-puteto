@@ -15,9 +15,19 @@ if [ "$TRAVIS_REPO_SLUG" == "N00byKing/jubilant-puteto" ] && [ "$TRAVIS_JDK_VERS
   cd jubilant-puteto-doc
   git status
   git add *
-  git commit -m "Latest javadoc for commit $TRAVIS_COMMIT auto-pushed to gh-pages"
+  git commit -m "Latest javadoc for commit $TRAVIS_COMMIT auto-pushed to N00byKing/jubilant-puteto-doc"
   git push -f
 
   echo -e "Javadoc Updated.\n"
+  
+  cd ..
+  
+  echo -e "Updating Submodule Link.\n"
 
+  git submodule init
+  cd doc
+  git pull
+  cd ..
+  git commit -m 'Latest javadoc linked'
+  git push
 fi
