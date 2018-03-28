@@ -22,8 +22,9 @@ if [ "$TRAVIS_REPO_SLUG" == "N00byKing/jubilant-puteto" ] && [ "$TRAVIS_JDK_VERS
   
   cd ..
   
-  echo -e "Updating Submodule Link.\n"
+  echo -e "Updating Submodule Link...\n"
 
+  git checkout master
   git submodule update --remote --merge
   git add doc
   git commit -m 'Latest javadoc linked'
