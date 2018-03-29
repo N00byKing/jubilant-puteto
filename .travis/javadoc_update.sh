@@ -27,7 +27,7 @@ if [ "$TRAVIS_REPO_SLUG" == "N00byKing/jubilant-puteto" ] && [ "$TRAVIS_JDK_VERS
   cd n00byking.github.io
   git submodule update --init --recursive
   git submodule update --remote --merge
-  git add docs/jubilant-puteto/
+  git add docs/jubilant-puteto-doc/
   git commit -m 'Latest javadoc for N00byKing/jubilant-puteto ($TRAVIS_COMMIT) linked to Github Pages'
   git push
   
