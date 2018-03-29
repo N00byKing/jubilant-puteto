@@ -5,7 +5,7 @@ public class EmuPanel extends Panel {
   private Color foreground;
   public EmuPanel(EmuCore emu, Color fg, Color bg) {
     super();
-    this.setBackground(bg);
+    setBackground(bg);
     ecore = emu;
     foreground = fg;
   }
