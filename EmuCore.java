@@ -87,8 +87,7 @@ public class EmuCore extends Frame {
     super(title);
     
     setResizable(false);
-    EPanel = new EmuPanel(this);
-    EPanel.setBackground(Color.BLACK);
+    EPanel = new EmuPanel(this, Color.WHITE, Color.BLACK);
     add(EPanel);
     setScale(scl);
     
