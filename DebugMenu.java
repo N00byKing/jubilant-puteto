@@ -4,7 +4,7 @@ import java.awt.event.*;
 public class DebugMenu extends Frame {
   // Anfang Attribute
   private EmuCore ecore;
-  
+  private EmuPanel corePanel;
   private Thread runthread;
   private Runnable emurun;
   
@@ -67,6 +67,10 @@ public class DebugMenu extends Frame {
   private TextField tfScale = new TextField();
   private TextField tfCycle = new TextField();
   private Button bSave = new Button();
+  private Label lForeground = new Label();
+  private TextField tfForeground = new TextField();
+  private Label lBackground = new Label();
+  private TextField tfBackground = new TextField();
   // Ende Attribute
   
   public DebugMenu(EmuCore pEcore) { 
@@ -265,7 +269,7 @@ public class DebugMenu extends Frame {
     cp.add(tfScale);
     tfCycle.setBounds(96, 240, 49, 33);
     cp.add(tfCycle);
-    bSave.setBounds(32, 304, 105, 49);
+    bSave.setBounds(32, 376, 105, 49);
     bSave.setLabel("Save");
     bSave.addActionListener(new ActionListener() { 
     public void actionPerformed(ActionEvent evt) { 
@@ -273,6 +277,16 @@ public class DebugMenu extends Frame {
     }
     });
     cp.add(bSave);
+    lForeground.setBounds(16, 280, 69, 28);
+    lForeground.setText("Foreground");
+    cp.add(lForeground);
+    tfForeground.setBounds(96, 280, 49, 33);
+    cp.add(tfForeground);
+    lBackground.setBounds(16, 320, 75, 28);
+    lBackground.setText("Background");
+    cp.add(lBackground);
+    tfBackground.setBounds(96, 320, 49, 33);
+    cp.add(tfBackground);
     // Ende Komponenten
     
     tfRegs = new TextField[] {
@@ -293,10 +307,12 @@ public class DebugMenu extends Frame {
   
   // Anfang Methoden
   public void update() {
+    corePanel = ecore.getPanel();
+    
     updateRAM(ecore.getMemory());
     updateRegisters(ecore.getRegisters(), ecore.getI());
     updateTimers(ecore.getSDelay(), ecore.getDDelay());
-    updateSettings(ecore.getScale(), ecore.getCycleDelay());
+    updateSettings(ecore.getScale(), ecore.getCycleDelay(), corePanel.getDrawColor(), corePanel.getBackground());
     tfOpcode.setText("0x" + String.format("%04X", ecore.getOpcode()));
   }
   
@@ -337,9 +353,11 @@ public class DebugMenu extends Frame {
     tfI.setText(Integer.toString(I));
   }
   
-  private void updateSettings(int scl, int cdly)  {
+  private void updateSettings(int scl, int cdly, Color fg, Color bg)  {
     tfScale.setText(Integer.toString(scl));
     tfCycle.setText(Integer.toString(cdly));
+    tfForeground.setText(Integer.toHexString(fg.getRGB()).substring(2).toUpperCase());
+    tfBackground.setText(Integer.toHexString(bg.getRGB()).substring(2).toUpperCase());
   }
   
   public void bRun_ActionPerformed(ActionEvent evt) {
@@ -364,6 +382,8 @@ public class DebugMenu extends Frame {
   public void bSave_ActionPerformed(ActionEvent evt) {
     ecore.setCycleDelay(Integer.parseInt(tfCycle.getText()));
     ecore.setScale(Integer.parseInt(tfScale.getText()));
+    corePanel.setDrawColor(Color.decode("0x" + tfForeground.getText()));
+    corePanel.setBackground(Color.decode("0x" + tfBackground.getText()));
   } // end of bSave_ActionPerformed
 
   // Ende Methoden

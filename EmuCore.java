@@ -197,6 +197,10 @@ public class EmuCore extends Frame {
     return dTime;
   }
   
+  public EmuPanel getPanel(){
+    return EPanel;
+  }
+  
   public boolean isRunning() {
     return running;
   }

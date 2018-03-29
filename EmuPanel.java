@@ -24,8 +24,12 @@ public class EmuPanel extends Panel {
     } // end of for
   }
   
-  public void setForeground(Color fg) {
+  public void setDrawColor(Color fg) {
     foreground = fg;  
     
+  }
+  
+  public Color getDrawColor() {
+    return foreground;  
   }
 }
