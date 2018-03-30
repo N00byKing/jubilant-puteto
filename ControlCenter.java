@@ -1,4 +1,6 @@
 import java.awt.*;
+import javax.swing.*;
+import javax.swing.filechooser.*;
 import java.awt.event.*;
 import java.io.File;
 
@@ -12,7 +14,7 @@ public class ControlCenter extends Frame {
   private Label lbEmulatorControl = new Label();
   private Button bResetEmulator = new Button();
   private Button bLoadROM = new Button();
-  private TextField tfROM = new TextField();
+  private final JFileChooser fc;
   
   //Custom Attributes
   private DebugMenu dmenu;
@@ -101,7 +103,7 @@ public class ControlCenter extends Frame {
     });
     bResetEmulator.setVisible(false);
     cp.add(bResetEmulator);
-    bLoadROM.setBounds(232, 176, 201, 25);
+    bLoadROM.setBounds(232, 176, 201, 57);
     bLoadROM.setLabel("Load ROM");
     bLoadROM.addActionListener(new ActionListener() { 
     public void actionPerformed(ActionEvent evt) { 
@@ -109,9 +111,10 @@ public class ControlCenter extends Frame {
     }
     });
     cp.add(bLoadROM);
-    tfROM.setBounds(232, 208, 201, 25);
-    tfROM.setText("");
-    cp.add(tfROM);
+    
+    fc = new JFileChooser();
+    FileNameExtensionFilter filter = new FileNameExtensionFilter("Chip-8 ROM", new String[] {"ch8", "c8"});
+    fc.setFileFilter(filter);
     // Ende Komponenten
     
     setVisible(true);
@@ -154,8 +157,11 @@ public class ControlCenter extends Frame {
   } // end of bResetEmulator_ActionPerformed
 
   public void bLoadROM_ActionPerformed(ActionEvent evt) {
-    File romfile = new File(tfROM.getText());
-    if (romfile.exists()) {
+    
+    int returnVal = fc.showOpenDialog(this);
+    if (returnVal == JFileChooser.APPROVE_OPTION) {
+      File romfile = fc.getSelectedFile();
+      
       ecore = new EmuCore("CHIP-8 Emulator", romfile, 10, 10, false);
       dmenu = new DebugMenu(ecore);
       bShowEmulation.setVisible(true);
@@ -164,12 +170,9 @@ public class ControlCenter extends Frame {
       bHideDebugMenu.setVisible(true);
       bResetEmulator.setVisible(true);
       bLoadROM.setVisible(false);
-      tfROM.setEditable(false);
-    } else {
-      tfROM.setText("File does not exist!");
-    } // end of if-else
+    }
   } // end of bLoadROM_ActionPerformed
-
-  // Ende Methoden
+    
+    // Ende Methoden
 } // end of class ControlCenter
 
