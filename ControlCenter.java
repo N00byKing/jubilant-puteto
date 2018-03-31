@@ -1,19 +1,22 @@
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.Font;
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.filechooser.*;
-import java.awt.event.*;
 import java.io.File;
 
-public class ControlCenter extends Frame {
+public class ControlCenter extends JFrame {
   // Anfang Attribute
-  private Button bShowEmulation = new Button();
-  private Button bHideEmulation = new Button();
-  private Button bShowDebugMenu = new Button();
-  private Button bHideDebugMenu = new Button();
-  private Label lbDebugMenuControl = new Label();
-  private Label lbEmulatorControl = new Label();
-  private Button bResetEmulator = new Button();
-  private Button bLoadROM = new Button();
+  private JButton bShowEmulation = new JButton();
+  private JButton bHideEmulation = new JButton();
+  private JButton bShowDebugMenu = new JButton();
+  private JButton bHideDebugMenu = new JButton();
+  private JLabel lbDebugMenuControl = new JLabel();
+  private JLabel lbEmulatorControl = new JLabel();
+  private JButton bResetEmulator = new JButton();
+  private JButton bLoadROM = new JButton();
   private final JFileChooser fc;
   
   //Custom Attributes
@@ -42,12 +45,12 @@ public class ControlCenter extends Frame {
     setLocation(x, y);
     setTitle("ControlCenter");
     setResizable(false);
-    Panel cp = new Panel(null);
+    JPanel cp = new JPanel(null);
     add(cp);
     // Anfang Komponenten
     
     bShowEmulation.setBounds(24, 112, 201, 57);
-    bShowEmulation.setLabel("Show Emulation");
+    bShowEmulation.setText("Show Emulation");
     bShowEmulation.addActionListener(new ActionListener() { 
     public void actionPerformed(ActionEvent evt) { 
     bShowEmulation_ActionPerformed(evt);
@@ -56,7 +59,7 @@ public class ControlCenter extends Frame {
     bShowEmulation.setVisible(false);
     cp.add(bShowEmulation);
     bHideEmulation.setBounds(232, 112, 201, 57);
-    bHideEmulation.setLabel("Hide Emulation");
+    bHideEmulation.setText("Hide Emulation");
     bHideEmulation.addActionListener(new ActionListener() { 
     public void actionPerformed(ActionEvent evt) { 
     bHideEmulation_ActionPerformed(evt);
@@ -65,7 +68,7 @@ public class ControlCenter extends Frame {
     bHideEmulation.setVisible(false);
     cp.add(bHideEmulation);
     bShowDebugMenu.setBounds(24, 328, 201, 89);
-    bShowDebugMenu.setLabel("Show Debug Menu");
+    bShowDebugMenu.setText("Show Debug Menu");
     bShowDebugMenu.addActionListener(new ActionListener() { 
     public void actionPerformed(ActionEvent evt) { 
     bShowDebugMenu_ActionPerformed(evt);
@@ -74,7 +77,7 @@ public class ControlCenter extends Frame {
     bShowDebugMenu.setVisible(false);
     cp.add(bShowDebugMenu);
     bHideDebugMenu.setBounds(232, 328, 201, 89);
-    bHideDebugMenu.setLabel("Hide Debug Menu");
+    bHideDebugMenu.setText("Hide Debug Menu");
     bHideDebugMenu.addActionListener(new ActionListener() { 
     public void actionPerformed(ActionEvent evt) { 
     bHideDebugMenu_ActionPerformed(evt);
@@ -86,16 +89,14 @@ public class ControlCenter extends Frame {
     lbDebugMenuControl.setBounds(96, 264, 270, 44);
     lbDebugMenuControl.setText("Debug Menu Control");
     lbDebugMenuControl.setFont(new Font("Dialog", Font.PLAIN, 24));
-    lbDebugMenuControl.setAlignment(Label.CENTER);
     cp.add(lbDebugMenuControl);
     
     lbEmulatorControl.setBounds(96, 40, 283, 65);
     lbEmulatorControl.setText("Emulator Control");
     lbEmulatorControl.setFont(new Font("Dialog", Font.PLAIN, 24));
-    lbEmulatorControl.setAlignment(Label.CENTER);
     cp.add(lbEmulatorControl);
     bResetEmulator.setBounds(24, 176, 201, 57);
-    bResetEmulator.setLabel("Reset Emulator");
+    bResetEmulator.setText("Reset Emulator");
     bResetEmulator.addActionListener(new ActionListener() { 
     public void actionPerformed(ActionEvent evt) { 
     bResetEmulator_ActionPerformed(evt);
@@ -104,7 +105,7 @@ public class ControlCenter extends Frame {
     bResetEmulator.setVisible(false);
     cp.add(bResetEmulator);
     bLoadROM.setBounds(232, 176, 201, 57);
-    bLoadROM.setLabel("Load ROM");
+    bLoadROM.setText("Load ROM");
     bLoadROM.addActionListener(new ActionListener() { 
     public void actionPerformed(ActionEvent evt) { 
     bLoadROM_ActionPerformed(evt);
