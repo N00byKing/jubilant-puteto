@@ -1,20 +1,22 @@
 import java.awt.*;
+
 public class EmuPanel extends Panel {
   
   private EmuCore ecore;
-  private Color foreground;
-  public EmuPanel(EmuCore emu, Color fg, Color bg) {
+  private Color drawColor;
+
+  public EmuPanel(EmuCore emu, Color dc, Color bg) {
     super();
     setBackground(bg);
     ecore = emu;
-    foreground = fg;
+    drawColor = dc;
   }
   
   public void paint(Graphics g) {
     super.paintComponents(g);
     boolean[][] graph = ecore.getGFX();
     int scale = ecore.getScale();
-    g.setColor(foreground);
+    g.setColor(drawColor);
     for (int i = 0; i < 64 ; i++ ) {
       for (int j = 0; j < 32 ; j++ ) {
         if (graph[i][j]) {
@@ -24,12 +26,12 @@ public class EmuPanel extends Panel {
     } // end of for
   }
   
-  public void setDrawColor(Color fg) {
-    foreground = fg;  
+  public void setDrawColor(Color dc) {
+    drawColor = dc;  
     
   }
   
   public Color getDrawColor() {
-    return foreground;  
+    return drawColor;  
   }
 }
