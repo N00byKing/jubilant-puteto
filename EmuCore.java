@@ -1,9 +1,12 @@
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.Dimension;
+import java.awt.event.*;
 import java.io.*;
 import java.util.Random;
-import java.awt.event.*;
+import javax.swing.*;
 
-public class EmuCore extends Frame {
+public class EmuCore extends JFrame {
   
   //
   // CHIP-8 System Attributes
